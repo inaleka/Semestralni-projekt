@@ -30,3 +30,22 @@ body{
     background-color: rgb(7, 44, 84);
     color: var(--black-text);
 }
+
+.app__container{
+    display: grid;
+    grid-template-rows: 200px auto;
+    margin: 0 auto;
+    max-width: 580px;
+    padding: 0 10px;
+    height: 100vh;
+    background-color: bisque;
+    gap: 20px;
+}
+
+.app__container-top{
+    background-color: rgb(196, 255, 221);
+}
+
+.app__container-bottom{
+    background-color: rgb(206, 196, 255);
+}
