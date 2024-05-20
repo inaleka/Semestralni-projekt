@@ -1,0 +1,32 @@
+html{
+    box-sizing: border-top;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    transition-timing-function: cubic-bezier(0.600, -0.200, 0.735, 0.045);
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+:root{
+    --base-color: rgb(254, 100, 64);
+    --base-color-active: rgb(207, 77, 47);
+    --black-text: rgb(36, 36, 36);
+    --gray-text: rgb(63,63,63);
+}
+
+body{
+    font-family: Arial, Verdana, sans-serif;
+    background-color: rgb(7, 44, 84);
+    color: var(--black-text);
+}
