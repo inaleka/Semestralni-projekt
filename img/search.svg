@@ -24,7 +24,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="27.68323"
-     inkscape:cx="7.58582"
+     inkscape:cx="7.6038813"
      inkscape:cy="12.950078"
      inkscape:window-width="1920"
      inkscape:window-height="997"
@@ -33,21 +33,18 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1" />
   <rect
-     x="27.124052"
-     y="-0.79179215"
-     width="7.6612034"
-     height="1.9153008"
+     x="22.239767"
+     y="7.6332912"
+     width="8"
+     height="2"
      transform="rotate(45)"
      fill="#333333"
-     id="rect1"
-     ry="0.95765042"
-     style="stroke:#333333;stroke-width:1.45534;stroke-dasharray:none;stroke-opacity:1" />
+     id="rect1" />
   <circle
-     cx="12.631812"
-     cy="11.832265"
-     r="10.055329"
+     cx="11.5"
+     cy="11.5"
+     r="10.5"
      stroke="#333333"
      stroke-width="2"
-     id="circle1"
-     style="stroke-width:3.03518;stroke-dasharray:none" />
+     id="circle1" />
 </svg>
