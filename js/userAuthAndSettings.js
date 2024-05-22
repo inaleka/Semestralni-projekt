@@ -46,3 +46,49 @@ function handleLogin() {
         alert('You are already logged in.');
     }
 }
+
+function handleSignup() {
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    if (!isLoggedIn) {
+        const username = prompt('Enter your username:');
+        const password = prompt('Enter your password:');
+        const accountType = prompt('Enter your account type (Placený uživatel/Neplacený uživatel):');
+        if (username && password && accountType) {
+            // Проверка наличия пользователя в Local Storage
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const existingUser = users.find(user => user.username === username);
+            if (existingUser) {
+                alert('Username already exists.');
+            } else if (accountType !== 'Placený uživatel' && accountType !== 'Neplacený uživatel') {
+                alert('Invalid account type. Please enter "Placený uživatel" or "Neplacený uživatel".');
+            } else {
+                users.push({ username, password, accountType });
+                localStorage.setItem('users', JSON.stringify(users));
+                alert('User registered successfully.');
+            }
+        } else {
+            alert('All fields are required.');
+        }
+    } else {
+        alert('You are already logged in.');
+    }
+}
+
+function logout(event) {
+    event.preventDefault(); 
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('userType'); 
+    checkLoginStatus(); 
+    location.reload(); 
+    return false; 
+}
+
+window.onload = function() {
+    checkLoginStatus();
+};
+
+document.querySelector('button[data-action="login"]').addEventListener('click', handleLogin);
+
+document.querySelector('button[data-action="signup"]').addEventListener('click', handleSignup);
+
+document.getElementById('logoutBtn').addEventListener('click', logout);

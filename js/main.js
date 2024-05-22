@@ -86,3 +86,4 @@ function renderWeatherData(data) {
     img.src = `./img/weather/${fileNames[data.main]}.png`;
   }
 }
+
