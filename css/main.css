@@ -37,10 +37,16 @@ button {
 #rightAd {
     width: 200px;
     height: 300px;
-    background-color: #ccc;
+
     position: absolute; /* Позиционирование абсолютно */
     top: 50%; /* Вертикальное центрирование относительно блока .weather */
     transform: translateY(-50%); /* Смещение на половину высоты блока */
+}
+
+#leftAd img,
+#rightAd img {
+    width: 200px; /* Установите ширину по вашему желанию */
+    height: auto; /* Автоматическое подстраивание высоты */
 }
 
 #leftAd {
