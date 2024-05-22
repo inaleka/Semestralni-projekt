@@ -10,18 +10,18 @@ function checkLoginStatus() {
     const leftAd = document.getElementById('leftAd');
     const rightAd = document.getElementById('rightAd');
     if (isLoggedIn) {
-        loginButtonsContainer.classList.add('none'); // Скрываем кнопки входа при входе
-        logoutBtn.classList.remove('none'); // Показываем кнопку "Logout" при входе
+        loginButtonsContainer.classList.add('none'); 
+        logoutBtn.classList.remove('none'); 
         const userType = localStorage.getItem('userType');
         if (userType === 'Placený uživatel') {
-            leftAd.classList.add('none'); // Скрываем левую рекламу для платных пользователей
-            rightAd.classList.add('none'); // Скрываем правую рекламу для платных пользователей
+            leftAd.classList.add('none'); 
+            rightAd.classList.add('none'); 
         }
     } else {
-        loginButtonsContainer.classList.remove('none'); // Показываем кнопки входа при выходе
-        logoutBtn.classList.add('none'); // Скрываем кнопку "Logout" при выходе
-        leftAd.classList.remove('none'); // Показываем левую рекламу для неавторизованных пользователей
-        rightAd.classList.remove('none'); // Показываем правую рекламу для неавторизованных пользователей
+        loginButtonsContainer.classList.remove('none'); 
+        logoutBtn.classList.add('none'); 
+        leftAd.classList.remove('none');
+        rightAd.classList.remove('none'); 
     }
 }
 
@@ -31,14 +31,14 @@ function handleLogin() {
     if (!isLoggedIn) {
         const username = prompt('Enter your username:');
         const password = prompt('Enter your password:');
-        // Проверка наличия пользователя в Local Storage
+    
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const user = users.find(user => user.username === username && user.password === password);
         if (user) {
             localStorage.setItem('loggedIn', 'true');
-            localStorage.setItem('userType', user.accountType); // Сохраняем тип пользователя
+            localStorage.setItem('userType', user.accountType); 
             toggleElement(document.querySelector('.weather'));
-            checkLoginStatus(); // Проверяем статус входа и скрываем кнопки
+            checkLoginStatus(); 
         } else {
             alert('Invalid username or password.');
         }
