@@ -17,6 +17,10 @@ body{
 
 }
 
+.none{
+    display: none !important;
+}
+
 .weather{
     width: 320px;
     padding: 30px 20px;

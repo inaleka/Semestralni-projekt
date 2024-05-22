@@ -14,17 +14,23 @@ async function submitHandler(e){
         console.log('Enter city name');
         return
     }
-    
-    const cityInfo = await getGeo(input.value.trim());
 
-    const weatherInfo = await getWeather(cityInfo[0]['lat'],cityInfo[0]['lon']);
-    console.log(weatherInfo);
-    
+    const cityName = (input.value.trim());
+    input.value = ''
+
+    const cityInfo = await getGeo(cityName);
+
+    if(!cityInfo.length) return
+
+    const weatherInfo = await getWeather(
+        cityInfo[0]['lat'],
+        cityInfo[0]['lon']
+    );
+  
     console.log(weatherInfo.name);
-    console.log(weatherInfo.main.temp);
-    console.log(weatherInfo.main.humidity);
-    console.log(weatherInfo.wind.speed);
     console.log(weatherInfo.weather[0]['main']);
+
+    input.value = ''
 
     const weatherData = {
         name: weatherInfo.name,
@@ -33,6 +39,8 @@ async function submitHandler(e){
         speed: weatherInfo.wind.speed,
         main: weatherInfo.weather[0]['main']
     };
+
+    renderWeatherData(weatherData);
     
 }
 
@@ -49,3 +57,36 @@ async function getWeather(lat, lon){
     const data = await response.json();
     return data;
 }
+
+function renderWeatherData(data){
+
+    document.querySelector('.weather__info').classList.remove('none')
+    document.querySelector('.weather__details').classList.remove('none')
+
+    const temp = document.querySelector('.weather__temp');
+    const city = document.querySelector('.weather__city');
+    const humidity = document.querySelector('#humidity');
+    const speed = document.querySelector('#speed');
+    const img = document.querySelector('.weather__img');
+    
+
+    temp.innerText = Math.round(data.temp) + '°c';
+    city.innerText = data.name; 
+
+    humidity.innerText = data.humidity + '%'; 
+    speed.innerText = data.speed + 'km/h'; 
+
+    const fileNames = {
+        Clouds: 'clouds',
+        Clear: 'clear',
+        Rain: 'rain',
+        Snow: 'snow',
+        Mist: 'mist',
+        Drizzle: 'drizzle'
+    };
+
+    if (fileNames[data.main]) {
+		img.src = `./img/weather/${fileNames[data.main]}.png`;
+	}
+}
+
