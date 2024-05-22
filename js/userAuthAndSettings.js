@@ -24,3 +24,25 @@ function checkLoginStatus() {
         rightAd.classList.remove('none'); // Показываем правую рекламу для неавторизованных пользователей
     }
 }
+
+
+function handleLogin() {
+    const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    if (!isLoggedIn) {
+        const username = prompt('Enter your username:');
+        const password = prompt('Enter your password:');
+        // Проверка наличия пользователя в Local Storage
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(user => user.username === username && user.password === password);
+        if (user) {
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('userType', user.accountType); // Сохраняем тип пользователя
+            toggleElement(document.querySelector('.weather'));
+            checkLoginStatus(); // Проверяем статус входа и скрываем кнопки
+        } else {
+            alert('Invalid username or password.');
+        }
+    } else {
+        alert('You are already logged in.');
+    }
+}
