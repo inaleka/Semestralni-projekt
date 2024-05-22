@@ -54,7 +54,6 @@ function handleSignup() {
         const password = prompt('Enter your password:');
         const accountType = prompt('Enter your account type (Placený uživatel/Neplacený uživatel):');
         if (username && password && accountType) {
-            // Проверка наличия пользователя в Local Storage
             const users = JSON.parse(localStorage.getItem('users')) || [];
             const existingUser = users.find(user => user.username === username);
             if (existingUser) {

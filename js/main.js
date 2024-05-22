@@ -3,7 +3,7 @@ const API_KEY = '572dcf998f37c9a7c97cbfeec2eaa00a';
 const form = document.querySelector('#form');
 const input = document.querySelector('.form__input');
 
-let isLoggedIn = false; // флаг авторизации
+let isLoggedIn = false; 
 
 form.onsubmit = submitHandler;
 
