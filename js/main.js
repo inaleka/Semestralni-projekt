@@ -44,14 +44,14 @@ async function submitHandler(e) {
 }
 
 async function getGeo(name) {
-  const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
+  const geoUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
   const response = await fetch(geoUrl);
   const data = await response.json();
   return data;
 }
 
 async function getWeather(lat, lon) {
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+  const weatherUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`;
   const response = await fetch(weatherUrl);
   const data = await response.json();
   return data;
