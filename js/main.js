@@ -9,7 +9,6 @@ form.onsubmit = submitHandler;
 
 async function submitHandler(e) {
   e.preventDefault();
-
   if (!input.value.trim()) {
     console.log('Enter city name');
     return;
