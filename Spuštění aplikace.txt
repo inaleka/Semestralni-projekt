@@ -1,0 +1,2 @@
+Aplikace funguje přes Netlify PaaS(platform as a service), odkaz: https://app.netlify.com/teams/inaleka/overview
+Pro spuštění taky potřeba použit CDN(content delivery network), odkaz: https://cors-anywhere.herokuapp.com/corsdemo
