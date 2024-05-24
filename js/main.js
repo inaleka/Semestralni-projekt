@@ -7,8 +7,9 @@ let isLoggedIn = false;
 
 form.onsubmit = submitHandler;
 
-async function submitHandler(e) {
+export async function submitHandler(e) {
   e.preventDefault();
+
   if (!input.value.trim()) {
     console.log('Enter city name');
     return;
@@ -42,21 +43,21 @@ async function submitHandler(e) {
   renderWeatherData(weatherData);
 }
 
-async function getGeo(name) {
-  const geoUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
+export async function getGeo(name) {
+  const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${API_KEY}`;
   const response = await fetch(geoUrl);
   const data = await response.json();
   return data;
 }
 
-async function getWeather(lat, lon) {
-  const weatherUrl = `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+export async function getWeather(lat, lon) {
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`;
   const response = await fetch(weatherUrl);
   const data = await response.json();
   return data;
 }
 
-function renderWeatherData(data) {
+export function renderWeatherData(data) {
   document.querySelector('.weather__info').classList.remove('none');
   document.querySelector('.weather__details').classList.remove('none');
 
@@ -85,4 +86,3 @@ function renderWeatherData(data) {
     img.src = `./img/weather/${fileNames[data.main]}.png`;
   }
 }
-

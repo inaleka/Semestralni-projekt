@@ -1,0 +1,22 @@
+{
+    "name": "semestralni-projekt",
+    "version": "1.0.0",
+    "description": "Description of your project",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "author": "Inal Ekashaev",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.24.6",
+        "@babel/preset-env": "^7.24.6",
+        "babel-jest": "^27.5.1",
+        "jest": "^27.4.7"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.jsx?$": "babel-jest"
+        }
+    }
+}
