@@ -12,7 +12,8 @@
         "@babel/core": "^7.24.6",
         "@babel/preset-env": "^7.24.6",
         "babel-jest": "^27.5.1",
-        "jest": "^27.4.7"
+        "jest": "^27.4.7",
+        "node-fetch": "^3.3.2"
     },
     "jest": {
         "transform": {

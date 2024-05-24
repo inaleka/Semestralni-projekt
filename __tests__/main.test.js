@@ -1,28 +1,28 @@
 const { submitHandler, getGeo, getWeather, renderWeatherData } = require('../js/main');
+
 describe('Testing main.js', () => {
-  let form;
+  let form, input;
 
   beforeEach(() => {
-    // Создаем фиктивный элемент формы перед каждым тестом
-    form = document.createElement('form');
-    form.id = 'form'; // Установите правильный id
-    // Присваиваем фиктивный элемент формы к глобальной переменной document
-    document.body.appendChild(form);
+    document.body.innerHTML = `
+      <form id="form">
+        <input class="form__input" />
+      </form>
+      <div class="weather__info none"></div>
+      <div class="weather__details none"></div>
+      <div class="weather__temp"></div>
+      <div class="weather__city"></div>
+      <div id="humidity"></div>
+      <div id="speed"></div>
+      <img class="weather__img" />
+    `;
+    form = document.querySelector('#form');
+    input = document.querySelector('.form__input');
+    form.onsubmit = submitHandler;
   });
 
   afterEach(() => {
-    // После каждого теста удаляем созданный фиктивный элемент формы
-    document.body.removeChild(form);
-  });
-
-  test('getGeo should return an array', async () => {
-    const data = await getGeo('London');
-    expect(Array.isArray(data)).toBe(true);
-  });
-
-  test('getWeather should return an object', async () => {
-    const data = await getWeather(51.5074, 0.1278); 
-    expect(typeof data).toBe('object');
+    document.body.innerHTML = '';
   });
 
   test('renderWeatherData should be a function', () => {

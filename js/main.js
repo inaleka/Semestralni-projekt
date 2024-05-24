@@ -3,9 +3,11 @@ const API_KEY = '572dcf998f37c9a7c97cbfeec2eaa00a';
 const form = document.querySelector('#form');
 const input = document.querySelector('.form__input');
 
-let isLoggedIn = false; 
+let isLoggedIn = false;
 
-form.onsubmit = submitHandler;
+if (form) {
+  form.onsubmit = submitHandler;
+}
 
 export async function submitHandler(e) {
   e.preventDefault();
