@@ -16,6 +16,7 @@ describe('Testing main.js', () => {
       <div id="speed"></div>
       <img class="weather__img" />
     `;
+    
     form = document.querySelector('#form');
     input = document.querySelector('.form__input');
     form.onsubmit = submitHandler;
